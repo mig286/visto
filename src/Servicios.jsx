@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from './context/ThemeContext';
 import { 
-  Instagram, Linkedin, ArrowRight,
+  Instagram, Linkedin, ArrowRight, ArrowUpRight,
   Package, Cpu, Globe, BarChart3, Camera, 
   ShieldCheck, Zap, ChevronRight, CheckCircle2,
   Box, Sparkles, Database, HeartPulse, Shirt,
@@ -140,7 +140,7 @@ export default function Servicios() {
     <div className={`min-h-screen ${isDark ? 'bg-[#050505] text-white' : 'bg-white text-black'} selection:bg-lime-400 selection:text-black font-sans overflow-x-hidden transition-colors duration-300`}>
       
       {/* --- HERO SECTION CON IMAGEN --- */}
-      <section className={`relative pt-40 pb-32 px-6 overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
+      <section className={`relative pt-24 pb-8 px-4 sm:px-6 overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
         {/* Fondo sutil */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -151,7 +151,7 @@ export default function Servicios() {
           <div className={`absolute inset-0 bg-gradient-to-b ${isDark ? 'from-[#050505] via-[#050505]/90 to-[#050505]' : 'from-white via-white/90 to-white'}`}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
+        <div className="max-w-full mx-auto relative z-10 text-center px-6">
           <Reveal>
             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-md mb-8 ${isDark ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'}`}>
               <Sparkles className="w-4 h-4 text-lime-400" />
@@ -170,8 +170,8 @@ export default function Servicios() {
       </section>
 
       {/* --- NAVEGACIÓN INTERACTIVA DE SERVICIOS --- */}
-      <section className={`py-12 px-6 relative z-20 transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto">
+      <section className={`py-12 px-4 sm:px-6 relative z-20 transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
+        <div className="max-w-full mx-auto px-6">
           
           {/* Tabs de Navegación */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
@@ -276,11 +276,11 @@ export default function Servicios() {
       </section>
 
       {/* --- SECCIÓN "NOSOTROS NOS ENCARGAMOS" (REDISENADA) --- */}
-      <section className={`py-24 px-6 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
+      <section className={`py-24 px-4 sm:px-6 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
         {/* Elemento decorativo de fondo */}
         <div className={`absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[120px] pointer-events-none ${isDark ? 'bg-gradient-to-b from-lime-400/5 to-transparent' : 'bg-gradient-to-b from-lime-400/3 to-transparent'}`}></div>
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-full mx-auto grid lg:grid-cols-2 gap-16 items-center px-6">
           
           <Reveal>
              <div className="relative">
@@ -327,6 +327,104 @@ export default function Servicios() {
             </div>
           </Reveal>
 
+        </div>
+      </section>
+
+      {/* --- SERVICIOS PRINCIPALES --- */}
+      <section id="servicios" className={`py-32 px-4 sm:px-6 relative transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
+        <div className="max-w-full mx-auto px-6">
+          <Reveal>
+            <div className={`flex items-center gap-4 mb-8`}>
+              <div className={`h-px flex-1 ${isDark ? 'bg-white/20' : 'bg-gray-300'}`}></div>
+              <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-lime-400">Nuestros Servicios</h2>
+              <div className={`h-px flex-1 ${isDark ? 'bg-white/20' : 'bg-gray-300'}`}></div>
+            </div>
+          </Reveal>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Reveal delay={0}>
+              <div className={`group p-10 rounded-[2rem] border transition-all duration-500 hover:-translate-y-2 ${
+                isDark 
+                  ? 'bg-[#111] border-white/5 hover:border-lime-400/50' 
+                  : 'bg-gray-50 border-gray-200 hover:border-lime-400/50'
+              }`}>
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:bg-lime-400 group-hover:text-black transition-colors ${
+                  isDark ? 'bg-lime-400/10 text-lime-400' : 'bg-lime-200 text-lime-600'
+                }`}>
+                  <Box size={32} />
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>Empaque Personalizado</h3>
+                <p className={`mb-6 leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Diseño y producción de empaques a medida que reflejan la identidad de tu marca. Desde cajas rígidas hasta soluciones flexibles, garantizamos calidad y durabilidad.
+                </p>
+                <ul className={`text-sm space-y-2 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+                  <li>✓ Diseño estructural personalizado</li>
+                  <li>✓ Impresión de alta definición</li>
+                  <li>✓ Materiales eco-friendly</li>
+                  <li>✓ Prototipos en 24-48h</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <div className={`group p-10 rounded-[2rem] border transition-all duration-500 hover:-translate-y-2 ${
+                isDark 
+                  ? 'bg-[#111] border-white/5 hover:border-lime-400/50' 
+                  : 'bg-gray-50 border-gray-200 hover:border-lime-400/50'
+              }`}>
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:bg-lime-400 group-hover:text-black transition-colors ${
+                  isDark ? 'bg-lime-400/10 text-lime-400' : 'bg-lime-200 text-lime-600'
+                }`}>
+                  <Zap size={32} />
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>Soluciones Digitales</h3>
+                <p className={`mb-6 leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Plataformas de gestión, auditoría con data science y producción visual profesional para potenciar tu presencia en redes y canales digitales.
+                </p>
+                <ul className={`text-sm space-y-2 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+                  <li>✓ Desarrollo de plataformas web</li>
+                  <li>✓ Análisis de datos e insights</li>
+                  <li>✓ Producción audiovisual</li>
+                  <li>✓ Estrategia en redes sociales</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <div className={`group p-10 rounded-[2rem] border transition-all duration-500 hover:-translate-y-2 ${
+                isDark 
+                  ? 'bg-[#111] border-white/5 hover:border-lime-400/50' 
+                  : 'bg-gray-50 border-gray-200 hover:border-lime-400/50'
+              }`}>
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:bg-lime-400 group-hover:text-black transition-colors ${
+                  isDark ? 'bg-lime-400/10 text-lime-400' : 'bg-lime-200 text-lime-600'
+                }`}>
+                  <Globe size={32} />
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>Consultoría Estratégica</h3>
+                <p className={`mb-6 leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Desarrollo de marca, asesoría legal y preparación para exportación. Te acompañamos en cada etapa del crecimiento empresarial.
+                </p>
+                <ul className={`text-sm space-y-2 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+                  <li>✓ Branding y posicionamiento</li>
+                  <li>✓ Asesoría legal exportadora</li>
+                  <li>✓ Planes de expansión</li>
+                  <li>✓ Análisis de mercado</li>
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={450} className="mt-16 text-center">
+            <button onClick={() => navigate('/productos')} className={`group relative px-10 py-6 rounded-full font-bold text-lg overflow-hidden inline-flex items-center gap-2 ${
+              isDark 
+                ? 'bg-white text-black hover:text-white' 
+                : 'bg-black text-white hover:text-black'
+            }`}>
+              <div className="absolute inset-0 w-full h-full bg-lime-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              <span className="relative flex items-center gap-2">Ver Productos <ArrowUpRight size={20} /></span>
+            </button>
+          </Reveal>
         </div>
       </section>
 

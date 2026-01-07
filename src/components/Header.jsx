@@ -41,26 +41,24 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrollY > 20 
           ? isDark
-            ? 'bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3'
-            : 'bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-2xl py-3'
+            ? 'bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-2xl py-1'
+            : 'bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-2xl py-1'
           : isDark
-            ? 'bg-black/60 backdrop-blur-md border-b border-white/5 py-4'
-            : 'bg-white/60 backdrop-blur-md border-b border-gray-200/30 py-4'
+            ? 'bg-black/60 backdrop-blur-md border-b border-white/5 py-1'
+            : 'bg-white/60 backdrop-blur-md border-b border-gray-200/30 py-1'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <button 
           onClick={() => handleNavigation('/')}
-          className="flex items-center gap-2 group cursor-pointer z-50"
+          className="group cursor-pointer z-50"
         >
-          <div className="w-10 h-10 bg-lime-400 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
-            <span className="font-black text-black text-xl italic">V</span>
-          </div>
-          <div className="flex flex-col">
-            <span className={`text-xl font-black tracking-tighter leading-none transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>VISTO</span>
-            <span className="text-[10px] text-lime-400 font-bold tracking-wider">PACKAGING</span>
-          </div>
+          <img 
+            src="/visto fotos/logo5.png" 
+            alt="VISTO Logo" 
+            className="w-24 h-24 group-hover:scale-110 transition-all duration-300"
+          />
         </button>
 
         {/* Desktop Navigation */}
@@ -69,7 +67,7 @@ export default function Header() {
             <button
               key={item.path}
               onClick={() => handleNavigation(item.path)}
-              className={`text-xs uppercase font-bold tracking-[0.2em] transition-all duration-300 pb-1 border-b-2 ${
+              className={`text-sm uppercase font-bold tracking-[0.2em] transition-all duration-300 pb-1 border-b-2 ${
                 isActive(item.path)
                   ? 'text-lime-400 border-lime-400'
                   : isDark
@@ -99,7 +97,7 @@ export default function Header() {
 
           <button 
             onClick={() => handleNavigation('/contacto')}
-            className="hidden sm:flex bg-lime-400 text-black px-5 py-2 rounded-full font-bold hover:bg-lime-300 hover:scale-105 active:scale-95 transition-all duration-300 text-xs items-center gap-2 shadow-[0_0_20px_rgba(163,230,53,0.3)]"
+            className="hidden sm:flex bg-lime-400 text-black px-5 py-2 rounded-full font-bold hover:bg-lime-300 hover:scale-105 active:scale-95 transition-all duration-300 text-sm items-center gap-2 shadow-[0_0_20px_rgba(163,230,53,0.3)]"
           >
             COTIZAR <Zap size={14} className="fill-black" />
           </button>

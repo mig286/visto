@@ -77,7 +77,7 @@ const PROJECTS = [
     year: '2024',
     material: 'Cartón Rígido + Soft Touch',
     desc: 'Experiencia de bienvenida premium para clientes VIP. Caja rígida imantada con cuna de espuma de alta densidad.',
-    img: '/images/GT 3357 - L15,5 - A22 - P3 - M1 38 x 30 cm.jpg',
+    img: '/visto fotos/papel acoplado1.jpeg',
     span: 'md:col-span-2 md:row-span-2',
     color: 'bg-amber-500'
   },
@@ -89,7 +89,7 @@ const PROJECTS = [
     year: '2023',
     material: 'Papel Antigrasa 120g',
     desc: 'Papel certificado FSC con barrera antigrasa vegetal. Impresión con tintas compostables.',
-    img: '/images/sache guardanapo.jpeg',
+    img: '/visto fotos/sache guardanapo.jpeg',
     span: 'md:col-span-1 md:row-span-1',
     color: 'bg-pink-500'
   },
@@ -101,7 +101,7 @@ const PROJECTS = [
     year: '2024',
     material: 'BOPP Metalizado',
     desc: 'Impresión continua a 8 colores con alta velocidad. Resistencia a la humedad y sellado en frío.',
-    img: '/images/saco delivery4.jpeg',
+    img: '/visto fotos/saco delivery.jpeg',
     span: 'md:col-span-1 md:row-span-2',
     color: 'bg-blue-600'
   },
@@ -113,7 +113,7 @@ const PROJECTS = [
     year: '2023',
     material: 'Kraft Liner 300g',
     desc: 'Diseño autoarmable sin pegamento. Material 100% reciclable y compostable en 90 días.',
-    img: '/images/saco batata.jpeg',
+    img: '/visto fotos/saco batata.jpeg',
     span: 'md:col-span-1 md:row-span-1',
     color: 'bg-green-600'
   },
@@ -125,7 +125,7 @@ const PROJECTS = [
     year: '2024',
     material: 'Couché 250g + Hot Stamping',
     desc: 'Acabados de lujo con laminado mate y logo en relieve dorado. Asas de cinta de gross.',
-    img: '/images/GT 5150 - L13 - A19,5 - P4,5 - M1-36,5 x 29.jpg',
+    img: '/visto fotos/bolsa delivery.jpeg',
     span: 'md:col-span-2 md:row-span-1',
     color: 'bg-purple-600'
   },
@@ -137,7 +137,7 @@ const PROJECTS = [
     year: '2023',
     material: 'Cartulina Premium',
     desc: 'Sistema de cierre seguro para envíos internacionales. Diseño modular para diferentes gramajes.',
-    img: '/images/papelvirgen110.webp',
+    img: '/visto fotos/papelvirgen110.webp',
     span: 'md:col-span-1 md:row-span-1',
     color: 'bg-orange-500'
   }
@@ -179,20 +179,20 @@ const STATS = [
 
 // Array de imágenes para el rotador
 const HERO_IMAGES = [
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.17.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.21.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.11.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.12.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.13.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.14.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.15.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.16.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.18.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.19.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-20 at 17.21.20.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-13 at 15.21.45.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-13 at 15.23.35.jpeg',
-  '/visto-fotos/WhatsApp Image 2025-10-13 at 15.25.10.jpeg',
+  '/visto fotos/americano.2.jpeg',
+  '/visto fotos/americano.4.jpeg',
+  '/visto fotos/americano.5.jpeg',
+  '/visto fotos/batata frita.jpeg',
+  '/visto fotos/bolsa delivery.jpeg',
+  '/visto fotos/bolsa delivery54841.jpeg',
+  '/visto fotos/bolsa termica.jpeg',
+  '/visto fotos/saco delivery.jpeg',
+  '/visto fotos/saco batata.jpeg',
+  '/visto fotos/papel acoplado1.jpeg',
+  '/visto fotos/lacre.jpeg',
+  '/visto fotos/sache guardanapo.jpeg',
+  '/visto fotos/cervilletas.jpeg',
+  '/visto fotos/comida.pasta.jpg',
 ];
 
 /* --- COMPONENTE PRINCIPAL --- */
@@ -207,6 +207,7 @@ const PackStudio = () => {
   const [scrollY, setScrollY] = useState(0);
   const [currentHeroImage, setCurrentHeroImage] = useState(HERO_IMAGES[0]);
   const [imageKey, setImageKey] = useState(0);
+  const [currentSolutionImage, setCurrentSolutionImage] = useState(HERO_IMAGES[0]);
 
   // Manejo de scroll
   useEffect(() => {
@@ -221,6 +222,16 @@ const PackStudio = () => {
       const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
       setCurrentHeroImage(HERO_IMAGES[randomIndex]);
       setImageKey(prev => prev + 1); // Para forzar remontaje de la imagen
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Rotación de imagen de solución cada 3 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
+      setCurrentSolutionImage(HERO_IMAGES[randomIndex]);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -401,104 +412,6 @@ const PackStudio = () => {
         </div>
       </section>
 
-      {/* --- SERVICIOS DETALLADOS --- */}
-      <section id="servicios" className={`py-32 px-6 md:px-12 relative transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'}`}>
-        <div className="max-w-[95rem] mx-auto">
-          <Reveal>
-            <div className={`flex items-center gap-4 mb-20`}>
-              <div className={`h-px flex-1 ${isDark ? 'bg-white/20' : 'bg-gray-300'}`}></div>
-              <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-lime-400">Nuestros Servicios</h2>
-              <div className={`h-px flex-1 ${isDark ? 'bg-white/20' : 'bg-gray-300'}`}></div>
-            </div>
-          </Reveal>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <Reveal delay={0}>
-              <div className={`group p-10 rounded-[2rem] border transition-all duration-500 hover:-translate-y-2 ${
-                isDark 
-                  ? 'bg-[#111] border-white/5 hover:border-lime-400/50' 
-                  : 'bg-gray-50 border-gray-200 hover:border-lime-400/50'
-              }`}>
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:bg-lime-400 group-hover:text-black transition-colors ${
-                  isDark ? 'bg-lime-400/10 text-lime-400' : 'bg-lime-200 text-lime-600'
-                }`}>
-                  <Box size={32} />
-                </div>
-                <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>Empaque Personalizado</h3>
-                <p className={`mb-6 leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Diseño y producción de empaques a medida que reflejan la identidad de tu marca. Desde cajas rígidas hasta soluciones flexibles, garantizamos calidad y durabilidad.
-                </p>
-                <ul className={`text-sm space-y-2 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
-                  <li>✓ Diseño estructural personalizado</li>
-                  <li>✓ Impresión de alta definición</li>
-                  <li>✓ Materiales eco-friendly</li>
-                  <li>✓ Prototipos en 24-48h</li>
-                </ul>
-              </div>
-            </Reveal>
-
-            <Reveal delay={150}>
-              <div className={`group p-10 rounded-[2rem] border transition-all duration-500 hover:-translate-y-2 ${
-                isDark 
-                  ? 'bg-[#111] border-white/5 hover:border-lime-400/50' 
-                  : 'bg-gray-50 border-gray-200 hover:border-lime-400/50'
-              }`}>
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:bg-lime-400 group-hover:text-black transition-colors ${
-                  isDark ? 'bg-lime-400/10 text-lime-400' : 'bg-lime-200 text-lime-600'
-                }`}>
-                  <Zap size={32} />
-                </div>
-                <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>Soluciones Digitales</h3>
-                <p className={`mb-6 leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Plataformas de gestión, auditoría con data science y producción visual profesional para potenciar tu presencia en redes y canales digitales.
-                </p>
-                <ul className={`text-sm space-y-2 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
-                  <li>✓ Desarrollo de plataformas web</li>
-                  <li>✓ Análisis de datos e insights</li>
-                  <li>✓ Producción audiovisual</li>
-                  <li>✓ Estrategia en redes sociales</li>
-                </ul>
-              </div>
-            </Reveal>
-
-            <Reveal delay={300}>
-              <div className={`group p-10 rounded-[2rem] border transition-all duration-500 hover:-translate-y-2 ${
-                isDark 
-                  ? 'bg-[#111] border-white/5 hover:border-lime-400/50' 
-                  : 'bg-gray-50 border-gray-200 hover:border-lime-400/50'
-              }`}>
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:bg-lime-400 group-hover:text-black transition-colors ${
-                  isDark ? 'bg-lime-400/10 text-lime-400' : 'bg-lime-200 text-lime-600'
-                }`}>
-                  <Globe size={32} />
-                </div>
-                <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>Consultoría Estratégica</h3>
-                <p className={`mb-6 leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Desarrollo de marca, asesoría legal y preparación para exportación. Te acompañamos en cada etapa del crecimiento empresarial.
-                </p>
-                <ul className={`text-sm space-y-2 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
-                  <li>✓ Branding y posicionamiento</li>
-                  <li>✓ Asesoría legal exportadora</li>
-                  <li>✓ Planes de expansión</li>
-                  <li>✓ Análisis de mercado</li>
-                </ul>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={450} className="mt-16 text-center">
-            <button onClick={() => navigate('/productos')} className={`group relative px-10 py-6 rounded-full font-bold text-lg overflow-hidden inline-flex items-center gap-2 ${
-              isDark 
-                ? 'bg-white text-black hover:text-white' 
-                : 'bg-black text-white hover:text-black'
-            }`}>
-              <div className="absolute inset-0 w-full h-full bg-lime-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-              <span className="relative flex items-center gap-2">Ver Productos <ArrowUpRight size={20} /></span>
-            </button>
-          </Reveal>
-        </div>
-      </section>
-
       {/* --- QUIÉNES SOMOS (mejorado) --- */}
       <section id="procesos" className={`py-32 px-6 md:px-12 relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-[#050505]' : 'bg-white'} ${isDark ? 'text-white' : 'text-black'}`}>
         <div className={`absolute top-0 right-0 p-24 pointer-events-none ${isDark ? 'opacity-5' : 'opacity-5'}`}>
@@ -532,8 +445,8 @@ const PackStudio = () => {
           </Reveal>
 
           <Reveal delay={200}>
-            <div className={`relative aspect-square md:aspect-video rounded-[3rem] overflow-hidden group ${isDark ? 'bg-gray-900' : 'bg-gray-200'}`}>
-               <img src="/images/WhatsApp Image 2025-10-20 at 17.21.21.jpeg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Solución Integral" />
+            <div className={`relative aspect-square md:aspect-video rounded-[3rem] overflow-hidden group scale-125 origin-center ${isDark ? 'bg-gray-900' : 'bg-gray-200'}`}>
+               <img key={imageKey} src={currentSolutionImage} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Solución Integral" />
                <div className={`absolute bottom-6 left-6 backdrop-blur p-4 rounded-2xl ${isDark ? 'bg-black/70' : 'bg-white/90'}`}>
                  <div className={`text-xs font-bold uppercase ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Nuestra Promesa</div>
                  <div className={`text-xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>Hacemos que tu empresa sea vista por todo el mundo</div>

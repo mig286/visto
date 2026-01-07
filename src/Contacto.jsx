@@ -53,7 +53,7 @@ export default function Contacto() {
     <div className={`min-h-screen ${isDark ? 'bg-[#0a0a0a] text-white' : 'bg-white text-black'} selection:bg-lime-400 selection:text-black font-sans transition-colors duration-300`}>
 
       {/* --- PÁGINA DE CONTACTO --- */}
-      <main className={`pt-32 pb-24 px-6 transition-colors duration-300 ${isDark ? 'bg-[#0a0a0a]' : 'bg-white'}`}>
+      <main className={`pt-24 pb-24 px-6 transition-colors duration-300 ${isDark ? 'bg-[#0a0a0a]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           
           {/* Sección Principal */}
@@ -118,38 +118,54 @@ export default function Contacto() {
             </div>
 
             {/* Columna del Formulario */}
-            <Reveal delay={400} className="lg:sticky lg:top-32">
+            <Reveal delay={400} className="lg:sticky lg:top-24">
               <div className={`border p-8 md:p-12 rounded-[3rem] shadow-2xl relative overflow-hidden transition-colors duration-300 ${
                 isDark
                   ? 'bg-[#111] border-white/10 shadow-lime-400/5'
-                  : 'bg-gray-50 border-gray-200 shadow-gray-400/5'
+                  : 'bg-white border-gray-300 shadow-gray-400/10'
               }`}>
                 {!submitted ? (
                   <form onSubmit={handleFormSubmit} className="space-y-6 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">Tu Nombre</label>
-                        <input type="text" required placeholder="Ej. Juan Pérez" className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all placeholder:text-gray-700 text-white" />
+                        <label className={`text-[10px] font-bold uppercase tracking-widest ml-1 ${isDark ? 'text-gray-500' : 'text-gray-700'}`}>Tu Nombre</label>
+                        <input type="text" required placeholder="Ej. Juan Pérez" className={`w-full rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all ${
+                          isDark 
+                            ? 'bg-white/5 border border-white/10 placeholder:text-gray-700 text-white' 
+                            : 'bg-gray-100 border border-gray-300 placeholder:text-gray-500 text-black'
+                        }`} />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">Empresa</label>
-                        <input type="text" placeholder="Nombre de tu marca" className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all placeholder:text-gray-700 text-white" />
+                        <label className={`text-[10px] font-bold uppercase tracking-widest ml-1 ${isDark ? 'text-gray-500' : 'text-gray-700'}`}>Empresa</label>
+                        <input type="text" placeholder="Nombre de tu marca" className={`w-full rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all ${
+                          isDark 
+                            ? 'bg-white/5 border border-white/10 placeholder:text-gray-700 text-white' 
+                            : 'bg-gray-100 border border-gray-300 placeholder:text-gray-500 text-black'
+                        }`} />
                       </div>
                     </div>
                     
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">Email de contacto</label>
-                      <input type="email" required placeholder="contacto@empresa.com" className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all placeholder:text-gray-700 text-white" />
+                      <label className={`text-[10px] font-bold uppercase tracking-widest ml-1 ${isDark ? 'text-gray-500' : 'text-gray-700'}`}>Email de contacto</label>
+                      <input type="email" required placeholder="contacto@empresa.com" className={`w-full rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all ${
+                          isDark 
+                            ? 'bg-white/5 border border-white/10 placeholder:text-gray-700 text-white' 
+                            : 'bg-gray-100 border border-gray-300 placeholder:text-gray-500 text-black'
+                        }`} />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">Detalla tu demanda</label>
-                      <textarea rows="4" required placeholder="Explícanos brevemente qué necesitas..." className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all resize-none placeholder:text-gray-700 text-white"></textarea>
+                      <label className={`text-[10px] font-bold uppercase tracking-widest ml-1 ${isDark ? 'text-gray-500' : 'text-gray-700'}`}>Detalla tu demanda</label>
+                      <textarea rows="4" required placeholder="Explícanos brevemente qué necesitas..." className={`w-full rounded-2xl px-5 py-4 focus:border-lime-400 outline-none transition-all resize-none ${
+                          isDark 
+                            ? 'bg-white/5 border border-white/10 placeholder:text-gray-700 text-white' 
+                            : 'bg-gray-100 border border-gray-300 placeholder:text-gray-500 text-black'
+                        }`}></textarea>
                     </div>
 
                     {/* Componente Interactivo de Prioridad */}
-                    <div className="pt-6 border-t border-white/5">
-                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <div className={`pt-6 border-t ${isDark ? 'border-white/5' : 'border-gray-300'}`}>
+                      <p className={`text-[10px] font-bold uppercase tracking-widest mb-4 flex items-center gap-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                         <ChevronRight className="w-3 h-3 text-lime-400" /> 
                         Selecciona tu prioridad principal
                       </p>
@@ -168,7 +184,9 @@ export default function Contacto() {
                               className={`flex flex-col items-center gap-3 p-4 rounded-2xl border transition-all ${
                                 needType === opt.id 
                                   ? 'bg-lime-400 border-lime-400 text-black shadow-lg shadow-lime-400/20 scale-[1.02]' 
-                                  : 'bg-white/5 border-white/10 text-gray-500 hover:border-white/20'
+                                  : isDark
+                                    ? 'bg-white/5 border-white/10 text-gray-500 hover:border-white/20'
+                                    : 'bg-gray-100 border-gray-300 text-gray-600 hover:border-gray-400'
                               }`}
                             >
                               <IconComponent className="w-5 h-5" />
@@ -190,12 +208,16 @@ export default function Contacto() {
                       <CheckCircle2 className="w-12 h-12 text-black" />
                     </div>
                     <h2 className="text-4xl font-black mb-4 tracking-tighter">SOLICITUD ENVIADA</h2>
-                    <p className="text-gray-400 leading-relaxed max-w-xs mx-auto mb-10">
+                    <p className={`leading-relaxed max-w-xs mx-auto mb-10 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                       Hemos recibido tu demanda. Uno de nuestros representantes se pondrá en contacto contigo en las próximas 48 horas.
                     </p>
                     <button 
                       onClick={() => setSubmitted(false)}
-                      className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors"
+                      className={`px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors ${
+                        isDark
+                          ? 'bg-white/5 border border-white/10 hover:bg-white/10'
+                          : 'bg-gray-200 border border-gray-300 hover:bg-gray-300'
+                      }`}
                     >
                       Volver a escribir
                     </button>
